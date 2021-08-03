@@ -46,6 +46,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     arel (9.0.0)
     awesome_print (1.9.2)
+    bcrypt (3.1.16)
     bootsnap (1.7.6)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -82,7 +83,7 @@ GEM
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
-    faraday_middleware (1.0.0)
+    faraday_middleware (1.1.0)
       faraday (~> 1.0)
     ffi (1.15.3)
     figaro (1.2.0)
@@ -95,8 +96,8 @@ GEM
       multi_json (~> 1.0)
       net-http-persistent (~> 2.9)
       net-http-pipeline
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (0.5.1)
+      activesupport (>= 5.0)
     hashdiff (1.0.1)
     highline (2.0.3)
     i18n (1.8.10)
@@ -111,7 +112,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.10.0)
+    loofah (2.11.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -233,6 +234,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bcrypt
   bootsnap (>= 1.1.0)
   byebug
   factory_bot_rails
