@@ -10,6 +10,19 @@ RSpec.describe WeatherService, :vcr do
 
           expect(weather).to be_a Hash
           expect(weather_current).to be_a Hash
+
+          expect(weather_current).to have_key :dt
+          expect(weather_current).to have_key :sunrise
+          expect(weather_current).to have_key :sunset
+          expect(weather_current).to have_key :temp
+          expect(weather_current).to have_key :feels_like
+          expect(weather_current).to have_key :humidity
+          expect(weather_current).to have_key :uvi
+          expect(weather_current).to have_key :visibility
+          expect(weather_current).to have_key :weather
+
+          expect(weather_current[:weather].first).to have_key :description
+          expect(weather_current[:weather].first).to have_key :icon
           expect(Time.at(weather_current[:dt])).to eq('2021-08-06 22:55:13 -0600')
           expect(Time.at(weather_current[:sunrise])).to eq('2021-08-06 06:02:39 -0600')
           expect(Time.at(weather_current[:sunset])).to eq('2021-08-06 20:07:34 -0600')
@@ -26,6 +39,16 @@ RSpec.describe WeatherService, :vcr do
           weather = WeatherService.retrieve_weather(39.986767, -104.812604)
 
           expect(weather).to be_a Hash
+          expect(weather).to have_key :daily
+          expect(weather[:daily].first).to have_key :dt
+          expect(weather[:daily].first).to have_key :sunrise
+          expect(weather[:daily].first).to have_key :sunset
+          expect(weather[:daily].first).to have_key :temp
+          expect(weather[:daily].first[:temp]).to have_key :max
+          expect(weather[:daily].first[:temp]).to have_key :min
+          expect(weather[:daily].first).to have_key :weather
+          expect(weather[:daily].first[:weather].first).to have_key :description
+          expect(weather[:daily].first[:weather].first).to have_key :icon
 
           weather_daily_five = weather[:daily].map do |day|
             [
