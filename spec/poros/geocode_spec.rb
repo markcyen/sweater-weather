@@ -1,9 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'GeoCode Poros', :vcr do
-  describe 'instance method' do
+RSpec.describe 'GeoCode Poros' do
+  describe 'initialize' do
     it 'abstracts and encapsulates geocode data that can be read' do
-      brighton_data = {
+      # brighton_geocode_data = File.read('spec/fixtures/webmock/brighton_geocode_data.json')
+      brighton_geocode_data = {
           "info": {
               "statuscode": 0,
               "copyright": {
@@ -59,7 +60,12 @@ RSpec.describe 'GeoCode Poros', :vcr do
           ]
       }
 
-      brighton = Geocode.new(brighton_data)
+      # parse_json = JSON.parse(brighton_geocode_data, symbolize_names: true)
+      #
+      # stub_request(:get, "http://www.mapquestapi.com/geocoding/v1/address.json").
+      #   to_return(status: 200, body: brighton_geocode_data, headers: {})
+
+      brighton = Geocode.new(brighton_geocode_data)
 
       expect(brighton.latitude).to eq(39.986767)
       expect(brighton.longitude).to eq(-104.812604)
