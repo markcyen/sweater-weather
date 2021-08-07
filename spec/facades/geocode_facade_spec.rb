@@ -7,6 +7,7 @@ RSpec.describe GeocodeFacade, :vcr do
         it 'can get geocode coordinates' do
           brighton_geocode = GeocodeFacade.get_coordinates('brighton co')
 
+          expect(brighton_geocode).to be_a Geocode
           expect(brighton_geocode.latitude).to eq(39.986767)
           expect(brighton_geocode.longitude).to eq(-104.812604)
         end
