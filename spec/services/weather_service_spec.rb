@@ -43,6 +43,7 @@ RSpec.describe WeatherService, :vcr do
 
           expect(weather).to be_a Hash
           expect(weather).to have_key :daily
+          expect(weather[:daily]).to be_an Array
           expect(weather[:daily].first).to have_key :dt
           expect(weather[:daily].first).to have_key :sunrise
           expect(weather[:daily].first).to have_key :sunset
