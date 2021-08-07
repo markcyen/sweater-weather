@@ -1,9 +1,10 @@
 class WeatherData
-  attr_reader :current_weather, :daily_weather
+  attr_reader :current_weather, :daily_weather, :hourly_weather
 
   def initialize(weather_data)
     @current_weather = current(weather_data)
     @daily_weather = daily(weather_data)
+    @hourly_weather = hourly(weather_data)
   end
 
   def current(weather_data)
@@ -34,5 +35,16 @@ class WeatherData
         icon: daily[:weather].first[:icon]
       }
     end[0..4]
+  end
+
+  def hourly(weather_data)
+    weather_data[:hourly].map do |hourly|
+      {
+        time: Time.at(hourly[:dt]).strftime('%k:%M:%S').strip,
+        temperature: hourly[:temp],
+        conditions: hourly[:weather].first[:description],
+        icon: hourly[:weather].first[:icon]
+      }
+    end[0..7]
   end
 end
