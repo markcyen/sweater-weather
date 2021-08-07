@@ -5,7 +5,7 @@ RSpec.describe GeocodeFacade, :vcr do
     VCR.use_cassette('geocode coordinates', :record => :new_episodes) do
       describe '.get_geocode' do
         it 'can get geocode coordinates' do
-          brighton_geocode = GeocodeFacade.get_geocode('brighton co')
+          brighton_geocode = GeocodeFacade.get_coordinates('brighton co')
 
           expect(brighton_geocode.latitude).to eq(39.986767)
           expect(brighton_geocode.longitude).to eq(-104.812604)
