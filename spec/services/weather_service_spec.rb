@@ -20,6 +20,9 @@ RSpec.describe WeatherService, :vcr do
           expect(weather_current).to have_key :uvi
           expect(weather_current).to have_key :visibility
           expect(weather_current).to have_key :weather
+          expect(weather_current[:weather]).to be_an Array
+          expect(weather_current[:weather].first).to have_key :description
+          expect(weather_current[:weather].first).to have_key :icon
 
           # expect(weather_current[:weather].first).to have_key :description
           # expect(weather_current[:weather].first).to have_key :icon
