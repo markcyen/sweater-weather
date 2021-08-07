@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Weather Data Poros' do
   describe 'initialize' do
-    before :each do
+    before :all do
       brighton_file = File.read('spec/fixtures/webmock/brighton_weather_data.json')
       @brighton_weather_data = JSON.parse(brighton_file, symbolize_names: true)
       @brighton = WeatherData.new(@brighton_weather_data)
