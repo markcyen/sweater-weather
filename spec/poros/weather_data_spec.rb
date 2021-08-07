@@ -48,5 +48,24 @@ RSpec.describe 'Weather Data Poros' do
       expect(@brighton.daily_weather.first).to eq(actual_first)
       expect(@brighton.daily_weather.last).to eq(actual_last)
     end
+
+    it 'abstracts and encapsulates hourly weather data that can be read' do
+      actual_first = {
+        time: '22:00:00',
+        temperature: 70.47,
+        conditions: 'broken clouds',
+        icon: '04n'
+      }
+      actual_last = {
+        time: '5:00:00',
+        temperature: 63.79,
+        conditions: 'few clouds',
+        icon: '02n'
+      }
+
+      expect(@brighton.hourly_weather).to be_an Array
+      expect(@brighton.hourly_weather.first).to eq(actual_first)
+      expect(@brighton.hourly_weather.last).to eq(actual_last)
+    end
   end
 end
