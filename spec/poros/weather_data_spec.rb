@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Weather Data Poros' do
   describe 'initialize' do
-    it 'abstracts and encapsulates weather data that can be read' do
-      # brighton_weather_data = File.read('spec/fixtures/webmock/brighton_weather_data.json')
-
+    before :all do
       brighton_weather_data = {
           "lat": 39.9868,
           "lon": -104.8126,
@@ -1714,6 +1712,10 @@ RSpec.describe 'Weather Data Poros' do
               }
           ]
       }
+    end
+
+    it 'abstracts and encapsulates weather data that can be read' do
+      # brighton_weather_data = File.read('spec/fixtures/webmock/brighton_weather_data.json')
 
       brighton = WeatherData.new(brighton_weather_data)
 
