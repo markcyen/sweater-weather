@@ -8,7 +8,16 @@ RSpec.describe GeocodeService, :vcr do
           response = GeocodeService.retrieve_geocode('brighton colorado')
 
           expect(response).to be_a Hash
+          expect(response).to have_key :results
           expect(response[:results]).to be_an Array
+          expect(response[:results].first).to be_a Hash
+          expect(response[:results].first).to have_key :locations
+          expect(response[:results].first[:locations]).to be_an Array
+          expect(response[:results].first[:locations].first).to be_a Hash
+          expect(response[:results].first[:locations].first).to have_key :latLng
+          expect(response[:results].first[:locations].first[:latLng]).to be_a Hash
+          expect(response[:results].first[:locations].first[:latLng]).to have_key :lat
+          expect(response[:results].first[:locations].first[:latLng]).to have_key :lng
 
           geocode = response[:results].first[:locations].first[:latLng]
 
