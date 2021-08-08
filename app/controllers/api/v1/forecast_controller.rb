@@ -8,8 +8,4 @@ class Api::V1::ForecastController < ApplicationController
       render json: { error: 'Not a valid query' }, status: :not_found
     end
   end
-
-  def numeric(params)
-    Float(params) != nil rescue false
-  end
 end
