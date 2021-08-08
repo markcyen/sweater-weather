@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe UnsplashService, :vcr do
   describe 'class method' do
     VCR.use_cassette('geocode service', :record => :new_episodes) do
-      describe '::retrieve_background' do
+      describe '::retrieve_background_image' do
         it 'can retrieve background photo' do
-          response = UnsplashService.retrieve_background('denver, co')
+          response = UnsplashService.retrieve_background_image('denver, co', 2)
 
           expect(response).to be_a Hash
           expect(response).to have_key :results
