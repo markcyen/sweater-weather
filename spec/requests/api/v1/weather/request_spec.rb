@@ -75,7 +75,7 @@ RSpec.describe 'Weather Details API', :vcr do
         expect(daily_weather.last[:icon]).to eq('01d')
       end
 
-      it 'send json of daily weather data via get request' do
+      it 'send json of hourly weather data via get request' do
         get '/api/v1/forecast', params: { location: 'brighton, co' }
 
         expect(response.status).to eq(200)
@@ -89,14 +89,44 @@ RSpec.describe 'Weather Details API', :vcr do
           expect(hourly).to be_a Hash
         end
         expect(hourly_weather.first[:time]).to eq('18:00:00')
-        expect(hourly_weather.first[:temperature]).to eq(80.74)
+        expect(hourly_weather.first[:temperature]).to eq(80.53)
         expect(hourly_weather.first[:conditions]).to eq('clear sky')
         expect(hourly_weather.first[:icon]).to eq('01d')
 
         expect(hourly_weather.last[:time]).to eq('1:00:00')
-        expect(hourly_weather.last[:temperature]).to eq(67.73)
+        expect(hourly_weather.last[:temperature]).to eq(66.34)
         expect(hourly_weather.last[:conditions]).to eq('clear sky')
         expect(hourly_weather.last[:icon]).to eq('01n')
+      end
+
+      it 'returns json error if params is nil' do
+        get '/api/v1/forecast'
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Not a valid query')
+      end
+
+      it 'returns json error if empty params' do
+        get '/api/v1/forecast', params: { location: '' }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Not a valid query')
+      end
+
+      it 'returns json error if params is something other than string' do
+        get '/api/v1/forecast', params: { location: 80127 }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Not a valid query')
       end
     end
   end
