@@ -83,6 +83,26 @@ RSpec.describe 'Breweries Details API', :vcr do
         expect(json_output[:error]).to eq('Invalid query')
       end
 
+      it 'sends error when params quantity is not present' do
+        get '/api/v1/breweries', params: { location: 'denver,co' }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Invalid query')
+      end
+
+      it 'sends error when no params are present' do
+        get '/api/v1/breweries'
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Invalid query')
+      end
+
       it 'sends json output when params quantity is a float and rounded up' do
         get '/api/v1/breweries', params: { location: 'denver,co', quantity: 5.7 }
 
