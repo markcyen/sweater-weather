@@ -53,7 +53,35 @@ RSpec.describe 'Breweries Details API', :vcr do
         expect(breweries_list.last[:brewery_type]).to eq('micro')
       end
 
-      
+      it 'sends error when params quantity is 0' do
+        get '/api/v1/breweries', params: { location: 'brighton, co', quantity: 0 }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Invalid query')
+      end
+
+      it 'sends error when params quantity is less than 0' do
+        get '/api/v1/breweries', params: { location: 'brighton, co', quantity: -1 }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Invalid query')
+      end
+
+      it 'sends error when params location is numeric' do
+        get '/api/v1/breweries', params: { location: 84923, quantity: 5 }
+
+        expect(response.status).to eq(404)
+
+        json_output = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json_output[:error]).to eq('Invalid query')
+      end
     end
   end
 end
