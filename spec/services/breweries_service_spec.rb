@@ -5,7 +5,7 @@ RSpec.describe BreweriesService, :vcr do
     VCR.use_cassette('breweries service', :record => :new_episodes) do
       describe '::retrieve_breweries' do
         it 'can retrieve breweries' do
-          breweries_api = BreweriesService.retrieve_breweries('39.986767,-104.812604', 5)
+          breweries_api = BreweriesService.retrieve_breweries('denver,co', 5)
 
           expect(breweries_api).to be_a Array
           expect(breweries_api.size).to eq(5)
