@@ -1,12 +1,12 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    user = User.create(user_params)
+    user = User.new(user_params)
     user[:email] = user[:email].downcase
     if user.save
       user.update(api_key: SecureRandom.hex(20))
       render json: UserSerializer.new(user), status: :created
     else
-      render json: { error: 'No valid input' }, status: :not_found
+      render json: ErrorSerializer.send_error(user.errors.full_messages.to_sentence), status: :bad_request
     end
   end
 
