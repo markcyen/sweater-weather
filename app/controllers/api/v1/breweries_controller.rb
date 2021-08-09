@@ -1,6 +1,7 @@
 class Api::V1::BreweriesController < ApplicationController
   def index
     if params[:quantity].to_i <= 0 ||
+        !params[:quantity].present? ||
         !params[:location].present? ||
         numeric(params[:location])
       render json: { error: 'Invalid query' }, status: :not_found
