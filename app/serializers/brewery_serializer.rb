@@ -12,7 +12,7 @@ class BrewerySerializer
             summary: current_weather[:conditions],
             temperature: current_weather[:temperature].round(0).to_s + ' F'
           },
-          breweries: data
+          breweries: data.breweries_list
         }
       }
     }
