@@ -1,21 +1,19 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    # binding.pry
     user = User.create(user_params)
-    # binding.pry
-    # if user.save
+    user[:email] = user[:email].downcase
+    if user.save
       user.update(api_key: SecureRandom.hex(20))
-      render json: UserSerializer.create_new(user)
-    # else
-    #   render json: { error: 'No valid input' }, status: :not_found
-    # end
-    # binding.pry
+      render json: UserSerializer.new(user), status: :created
+    else
+      render json: { error: 'No valid input' }, status: :not_found
+    end
   end
 
   private
 
   def user_params
-    params.permit(
+    params.require(:user).permit(
       :email,
       :password,
       :password_confirmation
