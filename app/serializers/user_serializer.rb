@@ -3,7 +3,7 @@ class UserSerializer
   # attributes :email, :api_key
 
   def self.create_new(user)
-    binding.pry
+    # binding.pry
     {
       data: {
         id: user.id,
