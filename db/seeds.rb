@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create(email: 'username1@test.com', password: 'password1', api_key: SecureRandom.hex(20))
+User.create(email: 'username2@test.com', password: 'password2', api_key: SecureRandom.hex(20))
+User.create(email: 'username3@test.com', password: 'password3', api_key: SecureRandom.hex(20))
+User.create(email: 'username4@test.com', password: 'password4', api_key: SecureRandom.hex(20))
