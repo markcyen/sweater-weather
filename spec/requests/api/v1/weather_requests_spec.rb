@@ -84,7 +84,7 @@ RSpec.describe 'Weather Details API', :vcr do
         hourly_weather = json_output[:data][:attributes][:hourly_weather]
 
         expect(hourly_weather).to be_an Array
-        expect(hourly_weather.size).to eq(8)
+        expect(hourly_weather.size).to eq(48)
         hourly_weather.each do |hourly|
           expect(hourly).to be_a Hash
         end
@@ -93,10 +93,10 @@ RSpec.describe 'Weather Details API', :vcr do
         expect(hourly_weather.first[:conditions]).to eq('clear sky')
         expect(hourly_weather.first[:icon]).to eq('01d')
 
-        expect(hourly_weather.last[:time]).to eq('1:00:00')
-        expect(hourly_weather.last[:temperature]).to eq(66.34)
-        expect(hourly_weather.last[:conditions]).to eq('clear sky')
-        expect(hourly_weather.last[:icon]).to eq('01n')
+        expect(hourly_weather[7][:time]).to eq('1:00:00')
+        expect(hourly_weather[7][:temperature]).to eq(66.34)
+        expect(hourly_weather[7][:conditions]).to eq('clear sky')
+        expect(hourly_weather[7][:icon]).to eq('01n')
       end
 
       it 'returns json error if params is nil' do
