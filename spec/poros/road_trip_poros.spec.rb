@@ -8,7 +8,7 @@ RSpec.describe 'Road Trip Poros' do
       denver_to_la = RoadTripData.new(directions_data)
 
       expect(denver_to_la.distance).to eq(1017.692)
-      expect(denver_to_la.formatted_time).to eq('14:25:59')
+      expect(denver_to_la.travel_time).to eq('14:25:59')
     end
   end
 end

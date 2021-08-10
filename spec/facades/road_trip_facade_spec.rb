@@ -9,7 +9,7 @@ RSpec.describe 'Road Trip Facade', :vcr do
 
           expect(directions).to be_a RoadTripData
           expect(directions.distance).to eq(1017.692)
-          expect(directions.formatted_time).to eq('14:25:59')
+          expect(directions.travel_time).to eq('14:25:59')
         end
       end
     end
