@@ -2,7 +2,7 @@
 
 ## Overview
 
-Sweater Weather is an application programming interface (API) extensive 5-day project to consume and expose internal and external APIs as a part of the [Turing School of Software and Design](https://github.com/turingschool-examples) backend program. This application was designed to mock a road trip where the frontend would consume the backend endpoints of the weather (current and forecasted), open breweries based on city and state location, background image for the location and directions between a start city and end city. This project consumes a few APIs, including the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api), the [Mapquest Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/), [Unsplash](https://unsplash.com/developers) and the [Open Brewery DB API](https://www.openbrewerydb.org/). The Open Brewery DB API was a part of a final assessment that was integerated into this project. 
+Sweater Weather is an application programming interface (API) extensive 5-day project to consume and expose internal and external APIs as a part of the [Turing School of Software and Design](https://github.com/turingschool-examples) backend program. This application was designed to mock a road trip where the frontend would consume the backend endpoints of the weather (current and forecasted), open breweries based on city and state location, background image for the location and directions between a start city and end city. This project consumes a few APIs, including the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api), the [Mapquest Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/), [Unsplash](https://unsplash.com/developers) and the [Open Brewery DB API](https://www.openbrewerydb.org/), where API keys were obtained. The Open Brewery DB API was a part of a final assessment that was integerated into this project. 
 
 Main learning goals from this project were:
 - Exposing an API that aggregated data from multiple external APIs
@@ -37,9 +37,9 @@ $ bundle exec rspec
 
 ## Endpoints
 
-All endpoints can be viewed by running the `rails server` and navigating to `http://localhost:3000/` with the endpoint of the get request. Another avenue to view the response is to utilize [Postman](https://www.postman.com/).
+All endpoints can be viewed by running the `rails server` and navigating to `http://localhost:3000/` with the endpoint of the get request. Another avenue to view the response is to utilize [Postman](https://www.postman.com/). Below are example requests and responses for each endpoint in this project.
 
-### Forecast for a City
+### Weather Forecast for a City
 
 #### Request:
 
@@ -48,7 +48,7 @@ GET /api/v1/forecast?location=denver,co
 Content-Type: application/json
 Accept: application/json
 ````
-#### Response
+#### Response:
 ````
 {
     "data": {
@@ -101,13 +101,13 @@ Accept: application/json
 
 ### Background Image of City
 
-#### Request
+#### Request:
 ````
 GET /api/v1/backgrounds?location=denver,co
 Content-Type: application/json
 Accept: application/json
 ````
-#### Response
+#### Response:
 ````
 {
     "data": {
@@ -137,7 +137,7 @@ Accept: application/json
 
 ### User Registration
 
-#### Request
+#### Request:
 ````
 POST /api/v1/users
 Content-Type: application/json
@@ -148,7 +148,7 @@ Accept: application/json
   "password_confirmation": "password"
 }
 ````
-#### Response
+#### Response:
 ````
 {
     "data": {
@@ -164,7 +164,7 @@ Accept: application/json
 
 ### User Login
 
-#### Request
+#### Request:
 ````
 POST /api/v1/sessions
 Content-Type: application/json
@@ -175,7 +175,7 @@ Accept: application/json
   "password": "password"
 }
 ````
-#### Response
+#### Response:
 ````
 {
     "data": {
@@ -191,7 +191,7 @@ Accept: application/json
 
 ### Road Trip
 
-#### Request
+#### Request:
 ````
 POST /api/v1/road_trip
 Content-Type: application/json
@@ -205,7 +205,7 @@ body:
   "api_key": "324j3i4o3i4ojo32j2iorj2iejriooj2rioej"
 }
 ````
-#### Response
+#### Response:
 ````
 {
     "data": {
