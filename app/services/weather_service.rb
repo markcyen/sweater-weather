@@ -7,17 +7,13 @@ class WeatherService
         req.params['lon'] = longtitude
         req.params['units'] = 'imperial'
       end
-      parse_json(response)
+      JSON.parse(response.body, symbolize_names: true)
     end
 
     private
 
     def conn
       Faraday.new(url: 'https://api.openweathermap.org')
-    end
-
-    def parse_json(response)
-      JSON.parse(response.body, symbolize_names: true)
     end
   end
 end
