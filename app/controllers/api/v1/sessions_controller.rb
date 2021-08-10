@@ -11,6 +11,6 @@ class Api::V1::SessionsController < ApplicationController
   private
 
   def user_sessions
-    params.permit(:email, :password)
+    JSON.parse(request.body.read, symbolize_names: true)
   end
 end
