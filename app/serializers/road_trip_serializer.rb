@@ -10,14 +10,14 @@ class RoadTripSerializer
           start_city: origin,
           end_city: destination,
           travel_time:
-            if trip_data.formatted_time.nil?
+            if trip_data.formatted_time.nil? || trip_data.distance > 3400
               'impossible'
             else
               "#{trip_data.formatted_time.split(':')[0]} hours, #{trip_data.formatted_time.split(':')[1]} minutes"
             end,
           weather_at_eta: {
             temperature:
-              if trip_data.formatted_time.nil?
+              if trip_data.formatted_time.nil? || trip_data.distance > 3400
                 ''
               elsif trip_data.formatted_time.split(':')[0].to_i > 47
                 weather_at_eta.hourly_weather[47][:temperature]
@@ -25,7 +25,7 @@ class RoadTripSerializer
                 weather_at_eta.hourly_weather[trip_data.formatted_time.split(':')[0].to_i][:temperature]
               end,
             conditions:
-              if trip_data.formatted_time.nil?
+              if trip_data.formatted_time.nil? || trip_data.distance > 3400
                 ''
               elsif trip_data.formatted_time.split(':')[0].to_i > 47
                 weather_at_eta.hourly_weather[47][:conditions]
