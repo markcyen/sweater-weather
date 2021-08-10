@@ -15,14 +15,11 @@ RSpec.describe 'User Registration' do
         password: 'password1',
         password_confirmation: 'password1'
       }
-      # headers = { 'CONTENT_TYPE' => 'application/json' }
-      # post '/api/v1/users', headers: headers, params: JSON.generate(user: user_registration)
       post '/api/v1/users', params: user_registration.to_json
 
       expect(response.status).to eq(201)
-# binding.pry
+
       response_body = JSON.parse(response.body, symbolize_names: true)
-      # binding.pry
 
       expect(response_body[:data]).to be_a Hash
       expect(response_body[:data]).to have_key :id
@@ -42,8 +39,6 @@ RSpec.describe 'User Registration' do
         password: 'password1',
         password_confirmation: 'password'
       }
-      # headers = { 'CONTENT_TYPE' => 'application/json' }
-      # post '/api/v1/users', headers: headers, params: JSON.generate(user: user_registration)
       post '/api/v1/users', params: user_registration.to_json
 
       expect(response.status).to eq(400)
@@ -61,8 +56,6 @@ RSpec.describe 'User Registration' do
         password: 'password1',
         password_confirmation: 'password1'
       }
-      # headers = { 'CONTENT_TYPE' => 'application/json' }
-      # post '/api/v1/users', headers: headers, params: JSON.generate(user: user_registration)
       post '/api/v1/users', params: user_registration.to_json
 
       expect(response.status).to eq(400)
@@ -79,8 +72,6 @@ RSpec.describe 'User Registration' do
         password: 'password1',
         password_confirmation: 'password1'
       }
-      # headers = { 'CONTENT_TYPE' => 'application/json' }
-      # post '/api/v1/users', headers: headers, params: JSON.generate(user: user_registration)
       post '/api/v1/users', params: user_registration.to_json
 
       expect(response.status).to eq(400)
@@ -97,8 +88,6 @@ RSpec.describe 'User Registration' do
         password: 'password1',
         password_confirmation: 'password1'
       }
-      # headers = { 'CONTENT_TYPE' => 'application/json' }
-      # post '/api/v1/users', headers: headers, params: JSON.generate(user: user_registration)
       post '/api/v1/users', params: user_registration.to_json
 
       expect(response.status).to eq(400)

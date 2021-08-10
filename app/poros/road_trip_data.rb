@@ -1,9 +1,8 @@
 class RoadTripData
-  attr_reader :distance, :formatted_time, :time_in_seconds
+  attr_reader :distance, :travel_time
 
   def initialize(directions_data)
     @distance = directions_data[:route][:distance]
-    @formatted_time = directions_data[:route][:formattedTime]
-    @time_in_seconds = directions_data[:route][:realTime]
+    @travel_time = directions_data[:route][:formattedTime]
   end
 end
