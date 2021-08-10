@@ -33,14 +33,6 @@ RSpec.describe GeocodeService, :vcr do
           expect(response).to be_a Hash
           expect(response).to have_key :route
           expect(response[:route]).to be_a Hash
-          # expect(response[:route]).to have_key :boundingBox
-          # expect(response[:route][:boundingBox]).to be_a Hash
-          # expect(response[:route][:boundingBox]).to have_key :ul
-          # expect(response[:route][:boundingBox][:ul]).to be_a Hash
-          # expect(response[:route][:boundingBox][:ul]).to have_key :lng
-          # expect(response[:route][:boundingBox][:ul][:lng]).to be_a Float
-          # expect(response[:route][:boundingBox][:ul]).to have_key :lat
-          # expect(response[:route][:boundingBox][:ul][:lat]).to be_a Float
           expect(response[:route]).to have_key :distance
           expect(response[:route][:distance]).to be_a Float
           expect(response[:route]).to have_key :realTime

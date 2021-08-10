@@ -16,10 +16,6 @@ RSpec.describe UnsplashService, :vcr do
           expect(response[:results].first[:urls]).to be_a Hash
           expect(response[:results].first[:urls]).to have_key :full
           expect(response[:results].first[:user]).to have_key :portfolio_url
-
-          # description
-          # image_url: urls: {full: xxxx},
-          # credit: {source: 'unsplash.com',  author: xxxx (user: {name: }), logo (): xxxx}
         end
       end
     end
