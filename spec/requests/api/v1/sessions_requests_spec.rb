@@ -14,7 +14,7 @@ RSpec.describe 'User Login Sessions' do
       post '/api/v1/sessions', params: {
         email: user.email,
         password: user.password
-      }
+      }, as: :json
 
       expect(response.status).to eq(200)
 
@@ -37,7 +37,7 @@ RSpec.describe 'User Login Sessions' do
       post '/api/v1/sessions', params: {
         email: user.email,
         password: 'password'
-      }
+      }, as: :json
 
       expect(response.status).to eq(401)
 
@@ -52,7 +52,7 @@ RSpec.describe 'User Login Sessions' do
       post '/api/v1/sessions', params: {
         email: 'username1@test.com',
         password: 'password1'
-      }
+      }, as: :json
 
       expect(response.status).to eq(401)
 
