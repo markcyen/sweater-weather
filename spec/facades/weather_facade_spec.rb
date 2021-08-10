@@ -34,7 +34,7 @@ RSpec.describe WeatherFacade, :vcr do
           end
 
           expect(brighton.hourly_weather).to be_an Array
-          expect(brighton.hourly_weather.size).to eq(8)
+          expect(brighton.hourly_weather.size).to eq(48)
 
           brighton.hourly_weather.each do |hourly|
             expect(hourly).to have_key :time
