@@ -9,7 +9,6 @@ RSpec.describe 'Road Trip Poros' do
 
       expect(denver_to_la.distance).to eq(1017.692)
       expect(denver_to_la.formatted_time).to eq('14:25:59')
-      expect(denver_to_la.time_in_seconds).to eq(10000000)
     end
   end
 end
