@@ -45,6 +45,6 @@ class WeatherData
         conditions: hourly[:weather].first[:description],
         icon: hourly[:weather].first[:icon]
       }
-    end[0..7]
+    end
   end
 end
