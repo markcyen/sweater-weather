@@ -64,8 +64,9 @@ RSpec.describe 'Weather Data Poros' do
       }
 
       expect(@brighton.hourly_weather).to be_an Array
+      expect(@brighton.hourly_weather.size).to eq(48)
       expect(@brighton.hourly_weather.first).to eq(actual_first)
-      expect(@brighton.hourly_weather.last).to eq(actual_last)
+      expect(@brighton.hourly_weather[7]).to eq(actual_last)
     end
   end
 end
