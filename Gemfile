@@ -25,7 +25,7 @@ gem 'puma', '~> 3.11'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'faraday'
 gem 'figaro'
 gem 'jsonapi-serializer'
