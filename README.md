@@ -4,6 +4,11 @@
 
 Sweater Weather is an application programming interface (API) extensive 5-day project to consume and expose internal and external APIs as a part of the [Turing School of Software and Design](https://github.com/turingschool-examples) backend program. This application was designed to mock a road trip where the frontend would consume the backend endpoints of the weather (current and forecasted), open breweries based on city and state location, background image for the location and directions between a start city and end city. This project consumes a few APIs, including the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api), the [Mapquest Geocoding API](https://developer.mapquest.com/documentation/geocoding-api/), [Unsplash](https://unsplash.com/developers) and the [Open Brewery DB API](https://www.openbrewerydb.org/). The Open Brewery DB API was a part of a final assessment that was integerated into this project. 
 
+Main learning goals from this project were:
+- Exposing an API that aggregated data from multiple external APIs
+- Exposing an API that requires an authentication token
+- Exposing an API for CRUD functionality
+
 ## Setup
 
 #### Versions
@@ -31,6 +36,8 @@ $ bundle exec rspec
 ````
 
 ## Endpoints
+
+All endpoints can be viewed by running the `rails server` and navigating to `http://localhost:3000/` with the endpoint of the get request. Another avenue to view the response is to utilize [Postman](https://www.postman.com/).
 
 ### Forecast for a City
 
