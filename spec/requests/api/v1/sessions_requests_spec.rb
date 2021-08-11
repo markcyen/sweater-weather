@@ -47,7 +47,7 @@ RSpec.describe 'User Login Sessions' do
       expect(response_body[:data][:error_message]).to eq('Invalid email or password')
     end
 
-    it 'returns error when given an incorrect email addres' do
+    it 'returns error when given an incorrect email address' do
       user = create(:user, email: 'username@test.com', password: 'password1')
       post '/api/v1/sessions', params: {
         email: 'username1@test.com',
