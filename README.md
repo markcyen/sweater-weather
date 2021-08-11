@@ -39,7 +39,8 @@ $ bundle exec rspec
 
 All endpoints can be viewed by running the `rails server` and navigating to `http://localhost:3000/` with the endpoint of the get request. Another avenue to view the response is to utilize [Postman](https://www.postman.com/). Below are example requests and responses for each endpoint in this project.
 
-### Weather Forecast for a City (Consuming and Exposing OpenWeather API Data Using MapQuest GeoCode API for Coordinates)
+### Weather Forecast for a City 
+Consuming and Exposing OpenWeather API Data Using MapQuest GeoCode API for Coordinates
 
 #### Request:
 
@@ -99,7 +100,8 @@ Accept: application/json
 }
 ````
 
-### Background Image of City (Consuming and Exposing Unsplash API Images)
+### Background Image of City 
+Consuming and Exposing Unsplash API Images
 
 #### Request:
 ````
@@ -135,7 +137,8 @@ Accept: application/json
 }
 ````
 
-### User Registration (Exposing User Data from Internal Database Upon User Registration)
+### User Registration 
+Exposing User Data from Internal Database Upon User Registration
 
 #### Request:
 ````
@@ -162,7 +165,8 @@ Accept: application/json
 }
 ````
 
-### User Login (Exposing User Data Upon Logging In)
+### User Login 
+Exposing User Data Upon Logging In
 
 #### Request:
 ````
@@ -189,7 +193,8 @@ Accept: application/json
 }
 ````
 
-### Road Trip (Consuming and Exposing Both MapQuest Directions and OpenWeather APIs)
+### Road Trip 
+Consuming and Exposing Both MapQuest Directions and OpenWeather APIs
 
 #### Request:
 ````
@@ -224,7 +229,8 @@ body:
 }
 ````
 
-### Open Breweries (Consuming and Exposing Open Brewery and OpenWeather API Data Leveraging MapQuest GeoCode for Coordinates)
+### Open Breweries 
+Consuming and Exposing Open Brewery and OpenWeather API Data Leveraging MapQuest GeoCode for Coordinates
 
 #### Request:
 ````
