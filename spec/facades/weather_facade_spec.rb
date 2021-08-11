@@ -22,7 +22,6 @@ RSpec.describe WeatherFacade, :vcr do
 
           expect(brighton.daily_weather).to be_an Array
           expect(brighton.daily_weather.size).to eq(5)
-
           brighton.daily_weather.each do |daily|
             expect(daily).to have_key :date
             expect(daily).to have_key :sunrise
@@ -35,7 +34,6 @@ RSpec.describe WeatherFacade, :vcr do
 
           expect(brighton.hourly_weather).to be_an Array
           expect(brighton.hourly_weather.size).to eq(48)
-
           brighton.hourly_weather.each do |hourly|
             expect(hourly).to have_key :time
             expect(hourly).to have_key :temperature

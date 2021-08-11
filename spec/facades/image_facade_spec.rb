@@ -14,16 +14,10 @@ RSpec.describe ImageFacade, :vcr do
           expect(denver.photos_data.first[:image][:location]).to eq('denver, co')
           expect(denver.photos_data.first[:image][:image_url]).to eq('https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNTIxNzR8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkMlMjBjb3xlbnwwfHx8fDE2Mjg0MzcxODE&ixlib=rb-1.2.1&q=85')
 
-          expect(denver.photos_data.first[:image]).to have_key :credit
-          expect(denver.photos_data.first[:image][:credit]).to have_key :source
           expect(denver.photos_data.first[:image][:credit][:source]).to eq('https://unsplash.com/')
-          expect(denver.photos_data.first[:image][:credit]).to have_key :logo
           expect(denver.photos_data.first[:image][:credit][:logo]).to eq('https://unsplash.com/s/photos/unsplash-logo')
-          expect(denver.photos_data.first[:image][:credit]).to have_key :author
           expect(denver.photos_data.first[:image][:credit][:author]).to eq('Ryan De Hamer')
-          expect(denver.photos_data.first[:image][:credit]).to have_key :author_portfolio
           expect(denver.photos_data.first[:image][:credit][:author_portfolio]).to eq('http://www.dehamermedia.com')
-          expect(denver.photos_data.first[:image][:credit]).to have_key :unsplash_source_comment
           expect(denver.photos_data.first[:image][:credit][:unsplash_source_comment]).to eq('Require the image URLs returned by the API to be directly used or embedded in application (also known as hotlinking)')
         end
       end
