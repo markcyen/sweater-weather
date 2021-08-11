@@ -39,7 +39,7 @@ $ bundle exec rspec
 
 All endpoints can be viewed by running the `rails server` and navigating to `http://localhost:3000/` with the endpoint of the get request. Another avenue to view the response is to utilize [Postman](https://www.postman.com/). Below are example requests and responses for each endpoint in this project.
 
-### Weather Forecast for a City
+### Weather Forecast for a City (Consuming and Exposing OpenWeather API Data Using MapQuest GeoCode API for Coordinates)
 
 #### Request:
 
@@ -99,7 +99,7 @@ Accept: application/json
 }
 ````
 
-### Background Image of City
+### Background Image of City (Consuming and Exposing Unsplash API Images)
 
 #### Request:
 ````
@@ -135,7 +135,7 @@ Accept: application/json
 }
 ````
 
-### User Registration
+### User Registration (Exposing User Data from Internal Database Upon User Registration)
 
 #### Request:
 ````
@@ -162,7 +162,7 @@ Accept: application/json
 }
 ````
 
-### User Login
+### User Login (Exposing User Data Upon Logging In)
 
 #### Request:
 ````
@@ -189,7 +189,7 @@ Accept: application/json
 }
 ````
 
-### Road Trip
+### Road Trip (Consuming and Exposing Both MapQuest Directions and OpenWeather APIs)
 
 #### Request:
 ````
@@ -219,6 +219,44 @@ body:
                 "temperature": 72.84,
                 "conditions": "few clouds"
             }
+        }
+    }
+}
+````
+
+### Open Breweries (Consuming and Exposing Open Brewery and OpenWeather API Data Leveraging MapQuest GeoCode for Coordinates)
+
+#### Request:
+````
+GET /api/v1/breweries?location=denver,co&quantity=5
+Content-Type: application/json
+Accept: application/json
+````
+#### Response:
+````
+{
+    "data": {
+        "id": null,
+        "type": "breweries",
+        "attributes": {
+            "destination": "denver,co",
+            "forecast": {
+                "summary": "scattered clouds",
+                "temperature": "86 F"
+            },
+            "breweries": [
+                {
+                    "id": 8962,
+                    "name": "Black Beak Brewing",
+                    "brewery_type": "planning"
+                },
+                {
+                    "id": 8245,
+                    "name": "Aero Craft Brewing",
+                    "brewery_type": "planning"
+                },
+                ....
+            ]
         }
     }
 }
