@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v1.5.1
+      - Faraday v1.7.0
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -19,11 +19,11 @@ http_interactions:
       message: ''
     headers:
       Date:
-      - Sat, 07 Aug 2021 20:10:00 GMT
+      - Wed, 18 Aug 2021 21:38:46 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1035'
+      - '1036'
       Access-Control-Allow-Methods:
       - OPTIONS,GET,POST
       Access-Control-Allow-Origin:
@@ -35,13 +35,13 @@ http_interactions:
       Geocodetransactioncount:
       - '1'
       Last-Modified:
-      - Sat, 07 Aug 2021 20:10:00 GMT
+      - Wed, 18 Aug 2021 21:38:46 GMT
       Pragma:
       - no-cache
       Reversegeocodetransactioncount:
       - '0'
       Set-Cookie:
-      - JSESSIONID=A6DFBD1048C26B805E53EB63051A49DD; Path=/; HttpOnly
+      - JSESSIONID=7A4E108E54196AF9F172AD03EB5366AA; Path=/; HttpOnly
       Status:
       - success
       Transactionweight:
@@ -52,6 +52,6 @@ http_interactions:
         Inc.","imageUrl":"http://api.mqcdn.com/res/mqlogo.gif","imageAltText":"\u00A9
         2021 MapQuest, Inc."},"messages":[]},"options":{"maxResults":-1,"thumbMaps":true,"ignoreLatLngInput":false},"results":[{"providedLocation":{"location":"brighton
         co"},"locations":[{"street":"","adminArea6":"","adminArea6Type":"Neighborhood","adminArea5":"Brighton","adminArea5Type":"City","adminArea4":"Adams
-        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282039540","unknownInput":"","type":"s","latLng":{"lat":39.986767,"lng":-104.812604},"displayLatLng":{"lat":39.986767,"lng":-104.812604},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<api_key>&type=map&size=225,160&locations=39.986767,-104.812604|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-125010216"}]}]}'
-  recorded_at: Sat, 07 Aug 2021 20:10:00 GMT
+        County","adminArea4Type":"County","adminArea3":"CO","adminArea3Type":"State","adminArea1":"US","adminArea1Type":"Country","postalCode":"","geocodeQualityCode":"A5XAX","geocodeQuality":"CITY","dragPoint":false,"sideOfStreet":"N","linkId":"282039540","unknownInput":"","type":"s","latLng":{"lat":39.986767,"lng":-104.812604},"displayLatLng":{"lat":39.986767,"lng":-104.812604},"mapUrl":"http://www.mapquestapi.com/staticmap/v5/map?key=<api_key>&type=map&size=225,160&locations=39.986767,-104.812604|marker-sm-50318A-1&scalebar=true&zoom=12&rand=-1436615734"}]}]}'
+  recorded_at: Wed, 18 Aug 2021 21:38:46 GMT
 recorded_with: VCR 6.0.0

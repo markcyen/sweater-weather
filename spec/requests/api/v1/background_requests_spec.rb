@@ -19,7 +19,7 @@ RSpec.describe 'Background Image Details API', :vcr do
         expect(json_output[:data][:attributes][:image]).to be_an Array
         expect(json_output[:data][:attributes][:image].size).to eq(2)
         expect(json_output[:data][:attributes][:image].second[:image][:location]).to eq('denver, co')
-        expect(json_output[:data][:attributes][:image].second[:image][:image_url]).to eq('https://images.unsplash.com/photo-1610411084826-5c980e287458?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNTIxNzR8MHwxfHNlYXJjaHwyfHxkZW52ZXIlMkMlMjBjb3xlbnwwfHx8fDE2Mjg0MzcxODE&ixlib=rb-1.2.1&q=85')
+        expect(json_output[:data][:attributes][:image].second[:image][:image_url]).to eq('https://images.unsplash.com/photo-1610411084826-5c980e287458?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNTIxNzR8MHwxfHNlYXJjaHwyfHxkZW52ZXIlMkMlMjBjb3xlbnwwfHx8fDE2MjkzMjE0NjY&ixlib=rb-1.2.1&q=85')
         expect(json_output[:data][:attributes][:image].second[:image][:credit][:source]).to eq('https://unsplash.com/')
         expect(json_output[:data][:attributes][:image].second[:image][:credit][:logo]).to eq('https://unsplash.com/s/photos/unsplash-logo')
         expect(json_output[:data][:attributes][:image].second[:image][:credit][:author]).to eq('Nima Sarram')

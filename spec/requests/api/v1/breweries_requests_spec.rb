@@ -25,9 +25,9 @@ RSpec.describe 'Breweries Details API', :vcr do
         expect(json_output[:data][:attributes]).to have_key :forecast
         expect(json_output[:data][:attributes][:forecast]).to be_a Hash
         expect(json_output[:data][:attributes][:forecast]).to have_key :summary
-        expect(json_output[:data][:attributes][:forecast][:summary]).to eq('few clouds')
+        expect(json_output[:data][:attributes][:forecast][:summary]).to eq('scattered clouds')
         expect(json_output[:data][:attributes][:forecast]).to have_key :temperature
-        expect(json_output[:data][:attributes][:forecast][:temperature]).to eq('88 F')
+        expect(json_output[:data][:attributes][:forecast][:temperature]).to eq('94 F')
         expect(json_output[:data][:attributes]).to have_key :breweries
         expect(json_output[:data][:attributes][:breweries]).to be_an Array
         expect(json_output[:data][:attributes][:breweries].size).to eq(5)

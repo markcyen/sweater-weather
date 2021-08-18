@@ -33,9 +33,9 @@ RSpec.describe 'Road Trip', :vcr do
         bangor_me_weather = WeatherFacade.get_weather_data('bangor, me')
 
         expect(bangor_me_weather.hourly_weather.first[:time]).to eq('15:00:00')
-        expect(bangor_me_weather.hourly_weather.first[:temperature]).to eq(74.89)
+        expect(bangor_me_weather.hourly_weather.first[:temperature]).to eq(73.35)
         expect(bangor_me_weather.hourly_weather[47][:time]).to eq('14:00:00')
-        expect(bangor_me_weather.hourly_weather[47][:temperature]).to eq(90.93)
+        expect(bangor_me_weather.hourly_weather[47][:temperature]).to eq(84.97)
       end
 
       it 'returns a response with temperature and conditions with hourly array limit' do
@@ -56,8 +56,8 @@ RSpec.describe 'Road Trip', :vcr do
 
         los_angeles_weather = WeatherFacade.get_weather_data('los angeles, ca')
 
-        expect(los_angeles_weather.hourly_weather[14][:temperature]).to eq(77.7)
-        expect(los_angeles_weather.hourly_weather[14][:conditions]).to eq('few clouds')
+        expect(los_angeles_weather.hourly_weather[14][:temperature]).to eq(70.3)
+        expect(los_angeles_weather.hourly_weather[14][:conditions]).to eq('overcast clouds')
       end
 
       it 'returns an adequate response when destination is impossible' do
