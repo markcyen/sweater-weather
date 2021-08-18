@@ -33,16 +33,16 @@ RSpec.describe 'Weather Details API', :vcr do
         current_weather = json_output[:data][:attributes][:current_weather]
 
         expect(current_weather).to be_a Hash
-        expect(current_weather[:datetime]).to eq('2021-08-07T18:04:03.000-06:00')
-        expect(current_weather[:sunrise]).to eq('2021-08-07T06:03:36.000-06:00')
-        expect(current_weather[:sunset]).to eq('2021-08-07T20:06:23.000-06:00')
-        expect(current_weather[:temperature]).to eq(80.74)
-        expect(current_weather[:feels_like]).to eq(79.45)
-        expect(current_weather[:humidity]).to eq(27)
-        expect(current_weather[:uvi]).to eq(1.07)
-        expect(current_weather[:visibility]).to eq(6437)
-        expect(current_weather[:conditions]).to eq('smoke')
-        expect(current_weather[:icon]).to eq('50d')
+        expect(current_weather[:datetime]).to be_a String
+        expect(current_weather[:sunrise]).to be_a String
+        expect(current_weather[:sunset]).to be_a String
+        expect(current_weather[:temperature]).to eq(93.81)
+        expect(current_weather[:feels_like]).to eq(90.01)
+        expect(current_weather[:humidity]).to eq(19)
+        expect(current_weather[:uvi]).to eq(4.25)
+        expect(current_weather[:visibility]).to eq(10000)
+        expect(current_weather[:conditions]).to eq('scattered clouds')
+        expect(current_weather[:icon]).to eq('03d')
       end
 
       it 'send json of daily weather data via get request' do
@@ -58,21 +58,21 @@ RSpec.describe 'Weather Details API', :vcr do
         daily_weather.each do |daily|
           expect(daily).to be_a Hash
         end
-        expect(daily_weather.first[:date]).to eq('2021-08-07')
-        expect(daily_weather.first[:sunrise]).to eq('2021-08-07T06:03:36.000-06:00')
-        expect(daily_weather.first[:sunset]).to eq('2021-08-07T20:06:23.000-06:00')
-        expect(daily_weather.first[:max_temp]).to eq(86.54)
-        expect(daily_weather.first[:min_temp]).to eq(63.27)
+        expect(daily_weather.first[:date]).to eq('2021-08-18')
+        expect(daily_weather.first[:sunrise]).to be_a String
+        expect(daily_weather.first[:sunset]).to be_a String
+        expect(daily_weather.first[:max_temp]).to eq(94.75)
+        expect(daily_weather.first[:min_temp]).to eq(63.79)
         expect(daily_weather.first[:conditions]).to eq('scattered clouds')
         expect(daily_weather.first[:icon]).to eq('03d')
 
-        expect(daily_weather.last[:date]).to eq('2021-08-11')
-        expect(daily_weather.last[:sunrise]).to eq('2021-08-11T06:07:27.000-06:00')
-        expect(daily_weather.last[:sunset]).to eq('2021-08-11T20:01:29.000-06:00')
-        expect(daily_weather.last[:max_temp]).to eq(98.13)
-        expect(daily_weather.last[:min_temp]).to eq(66.2)
-        expect(daily_weather.last[:conditions]).to eq('clear sky')
-        expect(daily_weather.last[:icon]).to eq('01d')
+        expect(daily_weather.last[:date]).to eq('2021-08-22')
+        expect(daily_weather.last[:sunrise]).to be_a String
+        expect(daily_weather.last[:sunset]).to be_a String
+        expect(daily_weather.last[:max_temp]).to eq(95.38)
+        expect(daily_weather.last[:min_temp]).to eq(62.47)
+        expect(daily_weather.last[:conditions]).to eq('broken clouds')
+        expect(daily_weather.last[:icon]).to eq('04d')
       end
 
       it 'send json of hourly weather data via get request' do
@@ -88,15 +88,15 @@ RSpec.describe 'Weather Details API', :vcr do
         hourly_weather.each do |hourly|
           expect(hourly).to be_a Hash
         end
-        expect(hourly_weather.first[:time]).to eq('18:00:00')
-        expect(hourly_weather.first[:temperature]).to eq(80.53)
-        expect(hourly_weather.first[:conditions]).to eq('clear sky')
-        expect(hourly_weather.first[:icon]).to eq('01d')
+        expect(hourly_weather.first[:time]).to be_a String
+        expect(hourly_weather.first[:temperature]).to eq(94.42)
+        expect(hourly_weather.first[:conditions]).to eq('scattered clouds')
+        expect(hourly_weather.first[:icon]).to eq('03d')
 
-        expect(hourly_weather[7][:time]).to eq('1:00:00')
-        expect(hourly_weather[7][:temperature]).to eq(66.34)
-        expect(hourly_weather[7][:conditions]).to eq('clear sky')
-        expect(hourly_weather[7][:icon]).to eq('01n')
+        expect(hourly_weather[7][:time]).to be_a String
+        expect(hourly_weather[7][:temperature]).to eq(75.9)
+        expect(hourly_weather[7][:conditions]).to eq('overcast clouds')
+        expect(hourly_weather[7][:icon]).to eq('04n')
       end
 
       it 'returns json error if params is nil' do

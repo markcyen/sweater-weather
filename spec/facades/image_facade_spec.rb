@@ -12,7 +12,7 @@ RSpec.describe ImageFacade, :vcr do
           expect(denver.photos_data.first).to have_key :image
           expect(denver.photos_data.first[:image]).to have_key :location
           expect(denver.photos_data.first[:image][:location]).to eq('denver, co')
-          expect(denver.photos_data.first[:image][:image_url]).to eq('https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNTIxNzR8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkMlMjBjb3xlbnwwfHx8fDE2Mjg0MzcxODE&ixlib=rb-1.2.1&q=85')
+          expect(denver.photos_data.first[:image][:image_url]).to eq('https://images.unsplash.com/photo-1619856699906-09e1f58c98b1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNTIxNzR8MHwxfHNlYXJjaHwxfHxkZW52ZXIlMkMlMjBjb3xlbnwwfHx8fDE2MjkzMjE0NjY&ixlib=rb-1.2.1&q=85')
 
           expect(denver.photos_data.first[:image][:credit][:source]).to eq('https://unsplash.com/')
           expect(denver.photos_data.first[:image][:credit][:logo]).to eq('https://unsplash.com/s/photos/unsplash-logo')

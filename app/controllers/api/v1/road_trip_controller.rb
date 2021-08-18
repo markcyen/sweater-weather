@@ -4,7 +4,7 @@ class Api::V1::RoadTripController < ApplicationController
     if !check_user[:start_city].present? ||
         !check_user[:end_city].present?
       render json: ErrorSerializer.send_error('Bad request'), status: :bad_request
-    elsif
+    else
       if found_user
         trip_data = RoadTripFacade.get_directions_data(check_user[:start_city], check_user[:end_city])
         weather_at_eta = WeatherFacade.get_weather_data(check_user[:end_city])
