@@ -18,7 +18,7 @@ Main learning goals from this project were:
 
 ````
 $ git clone git@github.com:markcyen/sweater-weather.git
-$ cd sweater_weather
+$ cd sweater-weather
 $ bundle install
 ````
 
